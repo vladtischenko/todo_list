@@ -1,0 +1,13 @@
+<div id='task'>
+  <% if @flag: %>
+    <input id='edit-task' size="10" autofocus='true' />
+  <% else: %>
+    <span id='task-complete'><%= @task.get 'complete' %></span>
+    <% if @task.get('complete'): %>
+      <strike id='task-name'><%= @task.get 'name' %></strike>
+    <% else: %>
+      <span id='task-name'><%= @task.get 'name' %></span>
+    <% end %>
+    - <a class="remove-task">remove</a>
+  <% end %>
+</div>
