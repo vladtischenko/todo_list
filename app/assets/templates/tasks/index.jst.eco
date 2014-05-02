@@ -1,4 +1,6 @@
-<div>Add Task: <input id="add-task" type="text"/></div>
+<div>Add Task: 
+  <input id="add-task" type="text"/>
+</div>
 <div>
   <input id="complete" type="checkbox" />
   <span>make all as complete</span>
