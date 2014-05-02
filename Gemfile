@@ -45,7 +45,7 @@ gem 'pg'
 
 gem 'selenium-webdriver'
 
-gem 'thread_safe', '0.3.0'
+gem 'thread_safe', '0.2.0'
 
 
 group :development, :test do
