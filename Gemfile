@@ -45,6 +45,9 @@ gem 'pg'
 
 gem 'selenium-webdriver'
 
+gem 'thread_safe', '0.3.0'
+
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
