@@ -43,7 +43,7 @@ gem 'backbone-on-rails'
 
 gem 'pg'
 
-gem 'selenium-webdriver'
+gem "selenium-webdriver", "~> 2.38.0"
 
 gem 'thread_safe', '0.2.0'
 
