@@ -9,7 +9,7 @@ feature "Sing in / Sing up", :js => true do
       fill_in 'Password confirmation', with: 'qweasdzxc'
     end
     click_button 'Sign up'
-    expect(page).to have_content 'Add Task'
+    expect(page).to have_content 'tasks is not completed'
   end
   
   context 'registered user' do
@@ -24,7 +24,7 @@ feature "Sing in / Sing up", :js => true do
         fill_in 'Password', with: @user.password
       end
       click_button 'Sign in'
-      expect(page).to have_content 'Add Task'
+      expect(page).to have_content 'tasks is not completed'
     end
   end
 

@@ -47,10 +47,15 @@ gem "selenium-webdriver"
 
 gem 'thread_safe', '0.2.0'
 
+gem "jasminerice", :git => 'https://github.com/bradphelan/jasminerice.git'
+
+gem 'guard-jasmine'
+
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  # gem 'sinon-rails'
 end
 
 group :test do
@@ -58,6 +63,9 @@ group :test do
   gem 'faker'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
+
+  # gem 'poltergeist'
+  # gem 'phantomjs', :require => 'phantomjs/poltergeist'
 end
 
 group :doc do

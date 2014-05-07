@@ -6,26 +6,31 @@ class TodoList.Views.TasksItem extends Backbone.View
     'keypress #edit-task' : 'editOnEnter'
     'click #task-complete': 'toggleComplete'
     'blur #edit-task'     : 'render'
-    'mousedown #task-name': 'cut'
-    'mouseup #task-name'  : 'release'
- 
+    'mousedown #task'     : 'cut'
+    'mouseup #task'       : 'release'
+
+
   initialize: ->
-    @model.bind 'remove', @remove, @
-
-  model = null
-
-  cut: ->
-    model = @model
-
-  release: ->
-    
+    @model.bind 'destroy', @remove, @
+    @model.bind 'change', @render, @
 
   render: ->
     $(@el).html(@template(task: @model))
     @
 
+  model_id = null
+
+  cut: ->
+    model_id = @model.get 'id'
+
+  release: ->
+    @model.drag(model_id, @model.get 'id')
+    #view = new TodoList.Views.TasksIndex collection: new TodoList.Collections.Tasks
+    #view.dragRender()
+
   editTask: ->
     $(@el).html(@template({flag: true}))
+    @$('#edit-task').val(@model.get 'name')
     @
 
   removeTask: ->

@@ -2,8 +2,11 @@ class TodoList.Views.TasksIndex extends Backbone.View
   el: '#app'
   template: JST['tasks/index']
   events:
-    'keypress #add-task' : 'createOnEnter'
-    'click #complete' : 'setAllComplete'
+    'keypress #add-task'  : 'createOnEnter'
+    'click #complete'     : 'setAllComplete'
+    'mousedown #task-name': 'cut'
+    'mouseup #task-name'  : 'release'
+
 
   initialize: ->
     @collection.fetch({reset: true})
@@ -11,12 +14,22 @@ class TodoList.Views.TasksIndex extends Backbone.View
     @collection.bind 'reset', @render, @
     @collection.bind 'change', @render, @
 
+  dragRender: ->
+    $(@el).html(@template())
+    @collection.each (task) =>
+      view = new TodoList.Views.TasksItem model: task
+      @$('#tasks').append(view.render().el)
+    @
+
 
   render: ->
     $(@el).html(@template())
 
     footerView = new TodoList.Views.Footer collection: @collection
     footerView.render()
+
+    allCompleteView = new TodoList.Views.AllComplete collection: @collection
+    allCompleteView.render()
 
     @collection.each (task) =>
       view = new TodoList.Views.TasksItem model: task
@@ -39,6 +52,6 @@ class TodoList.Views.TasksIndex extends Backbone.View
     @$('#add-task').val('')
 
   addTask: (task) ->
-    view = new TodoList.Views.TasksItem model: task, collection: @collection
+    view = new TodoList.Views.TasksItem model: task
     @$('#tasks').append(view.render().el)
     @

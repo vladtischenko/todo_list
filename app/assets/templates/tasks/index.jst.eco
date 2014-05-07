@@ -1,7 +1,4 @@
-<div>Add Task: <input id="add-task" type="text"/></div>
-<div>
-  <input id="complete" type="checkbox" />
-  <span>make all as complete</span>
-</div>
+<div><input id="add-task" autofocus='true' type="text" placeholder="Type the new task..."/></div>
+<div id="all_complete"></div>
 <div id="tasks"></div>
 <div id="footer"></div>

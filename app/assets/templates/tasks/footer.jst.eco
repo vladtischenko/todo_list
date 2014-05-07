@@ -1,3 +1,4 @@
 <span>
   <span id="task-count"><%= @remaining %></span>
+  <span> tasks is not completed</span>
 </span>
