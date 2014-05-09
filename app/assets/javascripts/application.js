@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require backbone-support
 //= require turbolinks
 //= require underscore
 //= require backbone

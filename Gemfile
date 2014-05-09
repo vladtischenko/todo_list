@@ -51,6 +51,8 @@ gem "jasminerice", :git => 'https://github.com/bradphelan/jasminerice.git'
 
 gem 'guard-jasmine'
 
+gem "backbone-support"
+
 
 group :development, :test do
   gem 'rspec-rails'

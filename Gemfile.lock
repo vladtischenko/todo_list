@@ -47,6 +47,7 @@ GEM
       ejs
       jquery-rails
       railties
+    backbone-support (0.4.0)
     bcrypt (3.1.7)
     builder (3.1.4)
     capybara (2.2.1)
@@ -256,6 +257,7 @@ PLATFORMS
 
 DEPENDENCIES
   backbone-on-rails
+  backbone-support
   capybara
   coffee-rails (~> 4.0.0)
   database_cleaner

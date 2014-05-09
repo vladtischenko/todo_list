@@ -14,12 +14,12 @@ class TodoList.Views.TasksIndex extends Backbone.View
     @collection.bind 'reset', @render, @
     @collection.bind 'change', @render, @
 
-  dragRender: ->
-    $(@el).html(@template())
-    @collection.each (task) =>
-      view = new TodoList.Views.TasksItem model: task
-      @$('#tasks').append(view.render().el)
-    @
+  #//dragRender: ->
+    #//$(@el).html(@template())
+    #//@collection.each (task) =>
+      #//view = new TodoList.Views.TasksItem model: task
+      #//@$('#tasks').append(view.render().el)
+    #//@
 
 
   render: ->

@@ -1,4 +1,4 @@
-<span>
+<div style="margin-top: 15px">
   <span id="task-count"><%= @remaining %></span>
   <span> tasks is not completed</span>
-</span>
+</div>
