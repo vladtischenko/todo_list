@@ -1,7 +1,7 @@
 class TodoList.Views.TasksItem extends Backbone.View
   template: JST['tasks/item']
   events:
-    'click #remove-task' : 'removeTask'
+    'click #remove-task'  : 'removeTask'
     'dblclick #task-name' : 'editTask'
     'keypress #edit-task' : 'editOnEnter'
     'click #task-complete': 'toggleComplete'
@@ -25,8 +25,9 @@ class TodoList.Views.TasksItem extends Backbone.View
 
   release: ->
     @model.drag(model_id, @model.get 'id')
-    #//view = new TodoList.Views.TasksIndex collection: new TodoList.Collections.Tasks
-    #//view.dragRender()
+    @editTask() if model_id == @model.get 'id'
+    # view = new TodoList.Views.TasksIndex collection: new TodoList.Collections.Tasks
+    # view.dragRender()
 
   editTask: ->
     $(@el).html(@template({flag: true}))
