@@ -36,6 +36,7 @@ class TodoList.Views.TasksItem extends Backbone.View
     @
 
   removeTask: ->
+    @model.changePriority(@model.get('id'))
     @model.destroy()
 
   toggleComplete: ->
