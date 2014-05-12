@@ -34,8 +34,8 @@ describe "Views.TasksItem", ->
       setFixtures('<ul id="foo"></ul>')
       $('#foo').html(view.render().el)
 
-    it "show task name in span#task-name", ->
-      expect($('span#task-name', el).text()).toEqual('some task')
+    it "show task name in div#task-name", ->
+      expect($('div#task-name', el).text()).toEqual('some task')
 
     it "show input field when double click task name for edit task", ->
       $('#task-name').dblclick()

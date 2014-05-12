@@ -1,48 +1,19 @@
-<div id='task' class='row' style="margin-top: 15px">
+<div id='task' class='row'>
   <% if @flag: %>
     <div class="span1">
       <input id='edit-task' type="text" size="10" autofocus='true' />
     </div>
   <% else: %>
-    <div id='task-complete' class="span1"><%= @task.get 'complete' %></div>
+    <div id='task-complete' class="span1"><image src="images/change.png" /></div>
     <div class="span3">
       <% if @task.get('complete'): %>
-        <strike id='task-name' style="color: grey"><%= @task.get 'name' %></strike>
+        <strike id='task-name'><%= @task.get 'name' %></strike>
       <% else: %>
-        <span id='task-name'><%= @task.get 'name' %></span>
+        <div id='task-name'><%= @task.get 'name' %></div>
       <% end %>
     </div>
     <div class="span1">
-      <a id="remove-task">remove</a>
+      <a id="remove-task"><image src="images/delete.png" /></a>
     </div>
-    <span><%= @task.get 'priority' %></span>
   <% end %>
 </div>
-
-<!--
-<div id="task">
-  <table class="table">
-    <tr>
-      <% if @flag: %>
-        <td>
-          <input id='edit-task' size="10" autofocus='true' />  
-        </td>
-      <% else: %>
-        <td>
-          <div id='task-complete'><%= @task.get 'complete' %></div>  
-        </td>
-        <td>
-          <% if @task.get('complete'): %>
-            <strike id='task-name'><%= @task.get 'name' %></strike>
-          <% else: %>
-            <span id='task-name'><%= @task.get 'name' %></span>
-          <% end %>  
-        </td>
-      <% end %>
-      <td>
-        <a id="remove-task">remove</a>
-      </td>
-    </tr>
-  </table>
-</div>
--->

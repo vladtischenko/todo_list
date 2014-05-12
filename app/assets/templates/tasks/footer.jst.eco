@@ -2,6 +2,9 @@
   <span id="task-count"><%= @remaining %></span>
   <span> tasks is not completed</span>
   <% if @remaining == 0 && @size != 0: %>
-    <a id="remove-all">remove all</a>
+    <span id='remove-all-tasks'>
+      remove all
+      <a id="remove-all"><image src="images/delete.png" /></a>
+    </span>
   <% end %>
 </div>
