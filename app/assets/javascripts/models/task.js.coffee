@@ -15,19 +15,17 @@ class TodoList.Models.Task extends Backbone.Model
 
     middle_task_priorities = []
     if priority_first < priority_second 
-      #//drag down
       middle_task_priorities = _.filter(task_priorities, (priority) -> 
         priority > priority_first && priority < priority_second
         )
     else
-      #//drag up
       middle_task_priorities = _.filter(task_priorities, (priority) ->
         priority < priority_first && priority > priority_second
         )
 
     tasks = new TodoList.Collections.Tasks
     for priority in middle_task_priorities
-      tasks.add(@collection.findWhere(priority: priority))
+      tasks.add(@collection.findWhere(priority: priority), {sort: false})
 
     if priority_first < priority_second
       tasks.each (task) =>

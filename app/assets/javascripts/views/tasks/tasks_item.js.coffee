@@ -25,8 +25,10 @@ class TodoList.Views.TasksItem extends Backbone.View
 
   release: ->
     @model.drag(model_id, @model.get 'id')
-    # view = new TodoList.Views.TasksIndex collection: new TodoList.Collections.Tasks
-    # view.dragRender()
+    unless model_id == @model.get 'id'
+      # @model.collection.sort()
+      view = new TodoList.Views.TasksIndex collection: new TodoList.Collections.Tasks
+      view.dragRender()
 
   editTask: ->
     $(@el).html(@template({flag: true}))

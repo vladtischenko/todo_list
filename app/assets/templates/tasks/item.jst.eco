@@ -15,6 +15,7 @@
     <div class="span1">
       <a id="remove-task">remove</a>
     </div>
+    <span><%= @task.get 'priority' %></span>
   <% end %>
 </div>
 

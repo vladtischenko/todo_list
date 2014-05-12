@@ -8,5 +8,5 @@ class TodoList.Views.Footer extends Backbone.View
 
   render: ->
     remaining = @collection.where({complete: false}).length
-    $(@el).html(@template({remaining: remaining}))
+    $(@el).html(@template({remaining: remaining, size: @collection.length}))
     @

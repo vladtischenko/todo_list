@@ -1,4 +1,7 @@
 <div style="margin-top: 15px">
   <span id="task-count"><%= @remaining %></span>
   <span> tasks is not completed</span>
+  <% if @remaining == 0 && @size != 0: %>
+    <a id="remove-all">remove all</a>
+  <% end %>
 </div>

@@ -4,19 +4,21 @@ class TodoList.Views.TasksIndex extends Backbone.View
   events:
     'keypress #add-task'  : 'createOnEnter'
     'click #complete'     : 'setAllComplete'
-
+    'click #remove-all'   : 'removeAll'
+ 
   initialize: ->
     @collection.fetch({reset: true})
     @collection.bind 'add', @addTask, @
     @collection.bind 'reset', @render, @
     @collection.bind 'change', @render, @
+    # @collection.bind 'sort', @render, @
 
-  # dragRender: ->
-    # $(@el).html(@template())
-    # @collection.each (task) =>
-      # view = new TodoList.Views.TasksItem model: task
-      # @$('#tasks').append(view.render().el)
-    # @
+  dragRender: ->
+    $(@el).html(@template())
+    @collection.each (task) =>
+      view = new TodoList.Views.TasksItem model: task
+      @$('#tasks').append(view.render().el)
+    @
 
 
   render: ->
@@ -34,6 +36,11 @@ class TodoList.Views.TasksIndex extends Backbone.View
 
     @
 
+  removeAll: ->
+    model = null
+    while(model = @collection.first())
+      model.destroy()
+
   setAllComplete: ->
     if @$('#complete').prop("checked")
       @collection.each (task) =>
@@ -45,7 +52,7 @@ class TodoList.Views.TasksIndex extends Backbone.View
 
   createOnEnter: (event) ->
     return if event.keyCode != 13
-    @collection.create name: @$('#add-task').val(), complete: false
+    @collection.create({name: @$('#add-task').val(), complete: false})
     @$('#add-task').val('')
 
   addTask: (task) ->

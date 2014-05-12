@@ -36,7 +36,7 @@ class TasksController < ApplicationController
     @task.user = current_user
 
     if Task.count == 0
-      @task.priority = 0
+      @task.priority = 1
     else
       @task.priority = Task.by_user(current_user).last.priority + 1
     end
