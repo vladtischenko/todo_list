@@ -6,6 +6,8 @@ gem 'rails', '4.0.2'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 
+# ruby "2.0.0-p247"
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -41,11 +43,21 @@ gem 'backbone-on-rails'
 
 gem 'pg'
 
-gem 'selenium-webdriver'
+gem "selenium-webdriver"
+
+gem 'thread_safe', '0.2.0'
+
+gem "jasminerice", :git => 'https://github.com/bradphelan/jasminerice.git'
+
+gem 'guard-jasmine'
+
+# gem "backbone-support"
+
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  # gem 'sinon-rails'
 end
 
 group :test do
@@ -53,6 +65,9 @@ group :test do
   gem 'faker'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
+
+  # gem 'poltergeist'
+  # gem 'phantomjs', :require => 'phantomjs/poltergeist'
 end
 
 group :doc do

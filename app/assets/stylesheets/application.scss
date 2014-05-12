@@ -10,10 +10,25 @@
  *
  *= require_self
  *= require bootstrap_and_overrides
+ *= require tasks
  *= require_tree .
  */
 
- .main {
-  margin-top: 50px;
-  margin-left: 400px;
- }
+.main {
+ margin-top: 50px;
+ margin-left: 400px;
+}
+
+body {
+  width: 520px;
+}
+
+#app {
+  width: 600px;
+  margin-left: 250px;
+  background: #E8E8E8;
+  padding: 20px;
+  padding-left: 150px;
+  margin-bottom: 40px;
+  border-radius: 15px;
+}

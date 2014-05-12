@@ -1,0 +1,8 @@
+<div>
+  <% if @all: %>
+    <input id="complete" type="checkbox" checked="true" />
+  <% else: %>
+    <input id="complete" type="checkbox" />
+  <% end %>
+  <span id="mark_all">mark all as complete</span>
+</div>

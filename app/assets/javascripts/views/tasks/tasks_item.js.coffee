@@ -1,34 +1,42 @@
 class TodoList.Views.TasksItem extends Backbone.View
   template: JST['tasks/item']
   events:
-    'click a.remove-task' : 'removeTask'
+    'click #remove-task'  : 'removeTask'
     'dblclick #task-name' : 'editTask'
     'keypress #edit-task' : 'editOnEnter'
     'click #task-complete': 'toggleComplete'
     'blur #edit-task'     : 'render'
-    'mousedown #task-name': 'cut'
-    'mouseup #task-name'  : 'release'
- 
+    'mousedown #task'     : 'cut'
+    'mouseup #task'       : 'release'
+
+
   initialize: ->
-    @model.bind 'remove', @remove, @
-
-  model = null
-
-  cut: ->
-    model = @model
-
-  release: ->
-    
+    @model.bind 'destroy', @remove, @
+    @model.bind 'change', @render, @
 
   render: ->
     $(@el).html(@template(task: @model))
     @
 
+  model_id = null
+
+  cut: ->
+    model_id = @model.get 'id'
+
+  release: ->
+    @model.drag(model_id, @model.get 'id')
+    unless model_id == @model.get 'id'
+      # @model.collection.sort()
+      view = new TodoList.Views.TasksIndex collection: new TodoList.Collections.Tasks
+      view.dragRender()
+
   editTask: ->
     $(@el).html(@template({flag: true}))
+    @$('#edit-task').val(@model.get 'name')
     @
 
   removeTask: ->
+    @model.changePriority(@model.get('id'))
     @model.destroy()
 
   toggleComplete: ->
